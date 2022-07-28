@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery swichTab: Tabs Plugin Examples</title>
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./src/css/base.css">
+  <link rel="stylesheet" href="./src/css/swichTab.css">
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="tabGroup tabGroup2">
+      <ul class="swichtab-controller">
+        <li data-swichtab="controller"><a href="#tab1">tab1</a></li>
+        <li data-swichtab="controller"><a href="#tab2">tab2</a></li>
+        <li data-swichtab="controller"><a href="#tab3">tab3</a></li>
+        <li data-swichtab="controller"><a href="#tab4">tab4</a></li>
+      </ul>
+      <div class="swichtab-contents">
+        <div id="tab1" class="swichtab-panel" data-swichtab="target">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque perferendis dignissimos esse repudiandae fugit cumque.</p>
+        </div>
+
+        <div id="tab2" class="swichtab-panel" data-swichtab="target">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id totam quas alias eos soluta possimus.</p>
+        </div>
+
+        <div id="tab3" class="swichtab-panel" data-swichtab="target">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore dicta maxime eveniet optio iure dolor?</p>
+        </div>
+
+        <div id="tab4" class="swichtab-panel" data-swichtab="target">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum consequuntur officiis harum accusamus quia eligendi.</p>
+        </div>
+      </div>
+      <!-- /.swichtab-contents -->
+    </div>
+    <!-- /.swichtab -->
+
+  </div>
+  <!-- /.wrap -->
+<div id="tab1-active">Tab1</div>
+<div id="tab2-active">Tab2</div>
+<div id="tab3-active">Tab3</div>
+<div id="tab4-active">Tab4</div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+  <script src="./src/js/jquery.swichTab.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    $('.tabGroup2').swichTab({
+      cahngePanel: 'fade',
+      swiper: true,
+      index: 0,
+    });
+$(document).on('click','#tab1-active', function(){
+      $('.tabGroup2').swichTab({
+        
+         index: 0,
+    });
+    $('.swichtab-controller li').removeClass('is-active');
+    $('.swichtab-controller li:nth-child(1)').addClass('is-active');
+    $('#tab2,#tab3,#tab4').hide();
+});
+
+$(document).on('click','#tab2-active', function(){
+      $('.tabGroup2').swichTab({
+         
+         index: 1,
+    });
+    $('.swichtab-controller li').removeClass('is-active');
+    $('.swichtab-controller li:nth-child(2)').addClass('is-active');
+    $('#tab1,#tab3,#tab4').hide();
+});
+$(document).on('click','#tab3-active', function(){
+      $('.tabGroup2').swichTab({
+        
+         index: 2,
+    });
+    $('.swichtab-controller li').removeClass('is-active');
+    $('.swichtab-controller li:nth-child(3)').addClass('is-active');
+    $('#tab1,#tab2,#tab4').hide();
+});
+
+$(document).on('click','#tab4-active', function(){
+      $('.tabGroup2').swichTab({
+         
+         index: 3,
+    });
+    $('.swichtab-controller li').removeClass('is-active');
+    $('.swichtab-controller li:nth-child(4)').addClass('is-active');
+    $('#tab1,#tab2,#tab3').hide();
+});
+
+  </script>
+  
+</body>
+</html>
